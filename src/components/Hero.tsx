@@ -17,7 +17,7 @@ export const Hero = () => {
 
             <div className="pt-10">
               <h1 className="text-xl md:text-1xl font-bold text-gray-900 mb-6">
-                Whether you're a startup or scaling enterprise, we're here to:
+                {"Whether you're a startup or scaling enterprise, we're here to:"}
               </h1>
               <ul className="text-lg md:text-xl text-gray-700 space-y-4 mb-8">
                 <li className="flex items-center gap-2">
@@ -32,7 +32,7 @@ export const Hero = () => {
               </ul>
 
               <p className="text-lg md:text-xl text-gray-800 font-medium">
-                Let’s bring your ideas to life with <span className="text-indigo-600 font-semibold">clarity</span>, <span className="text-indigo-600 font-semibold">speed</span>, and <span className="text-indigo-600 font-semibold">precision</span>.
+                {"Let’s bring your ideas to life with "} <span className="text-indigo-600 font-semibold">clarity</span>, <span className="text-indigo-600 font-semibold">speed</span>, and <span className="text-indigo-600 font-semibold">precision</span>.
               </p>
             </div>
           </div>
