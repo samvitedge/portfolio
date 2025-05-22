@@ -28,7 +28,7 @@ export const Navbar = () => {
                   className="w-10"
                 />
               </span>
-            <span>SAMVIT EDGE</span>
+            <span className="" >SAMVIT EDGE</span>
           </span>
         </Link>
 
@@ -41,7 +41,7 @@ export const Navbar = () => {
               </Link>
             </div> */}
         </div>
-                
+                  
         <Disclosure>
           {({ open }) => (
             <>
