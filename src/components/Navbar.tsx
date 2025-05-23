@@ -28,7 +28,7 @@ export const Navbar = () => {
                   className="w-10"
                 />
               </span>
-            <span className="" >SAMVIT EDGE</span>
+            <img width={200} src="/img/name.PNG"/>
           </span>
         </Link>
 
