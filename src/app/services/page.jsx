@@ -34,7 +34,7 @@ export default function ServicesPage() {
       <Container className="pt-16 pb-12">
         <div className="max-w-4xl">
           <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white mb-6">
-            Professional Software Development Services in Australia
+            Professional Software Development Services in India
           </h1>
           <p className="text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300 mb-8">
             {`At Samvit Edge, we specialize in building smart, scalable, and future-ready technology solutions that solve
@@ -43,7 +43,7 @@ export default function ServicesPage() {
             need to go.`}
           </p>
           <p className="text-lg leading-normal text-gray-600 dark:text-gray-400 mb-12">
-            Based in Sydney, Australia, we serve clients globally with cutting-edge software development, AI automation,
+            Based in Mumbai, India, we serve clients globally with cutting-edge software development, AI automation,
             cloud solutions, and digital transformation services. Our team of expert developers, designers, and
             strategists work collaboratively to deliver solutions that drive measurable business growth.
           </p>

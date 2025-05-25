@@ -9,11 +9,11 @@ export default function AboutPage() {
       <Container className="pt-16 pb-12">
         <div className="max-w-4xl">
           <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white mb-6">
-            About Samvit Edge - Your Trusted Technology Partner in Australia
+            About Samvit Edge - Your Trusted Technology Partner in India
           </h1>
           <p className="text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300 mb-8">
             Samvit Edge is a forward-thinking IT consulting and software development company helping modern businesses
-            evolve digitally across Australia and globally. With a strong foundation in software engineering, artificial
+            evolve digitally across India and globally. With a strong foundation in software engineering, artificial
             intelligence, and cloud technologies, we deliver solutions that are not just smart but truly transformative
             for your business growth.
           </p>
@@ -60,7 +60,7 @@ export default function AboutPage() {
               be an enabler, not a barrier, and we're committed to making complex solutions simple and accessible.`}
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              <strong>Vision:</strong> {`To become Australia's leading digital transformation partner, recognized for our
+              <strong>Vision:</strong> {`To become India's leading digital transformation partner, recognized for our
               innovative approach, technical excellence, and unwavering commitment to client success. We envision a
               future where every business, regardless of size, can leverage cutting-edge technology to achieve their
               goals and create meaningful impact.`}
@@ -95,8 +95,8 @@ export default function AboutPage() {
           <div className="flex-1">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Story & Journey</h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              {`What began as a small team of passionate developers in Sydney has evolved into a comprehensive digital
-              solutions powerhouse serving clients across Australia, Asia, and beyond. Our journey started in 2019 when
+              {`What began as a small team of passionate developers in Mumbai has evolved into a comprehensive digital
+              solutions powerhouse serving clients across India, Asia, and beyond. Our journey started in 2019 when
               our founders recognized the growing gap between rapidly advancing technology and businesses' ability to
               effectively implement these innovations.`}
             </p>
@@ -118,7 +118,7 @@ export default function AboutPage() {
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Key Milestones</h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
-                  <li>• 2019: Founded in Sydney, Australia</li>
+                  <li>• 2019: Founded in Mumbai, India</li>
                   <li>• 2020: First enterprise client partnership</li>
                   <li>• 2021: Expanded to AI and automation services</li>
                   <li>• 2022: Achieved AWS Partner status</li>
@@ -262,25 +262,25 @@ export default function AboutPage() {
               Our Location & Global Reach
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              Headquartered in the vibrant tech hub of Sydney, Australia, Samvit Edge serves clients across multiple
+              Headquartered in the vibrant tech hub of Mumbai, India, Samvit Edge serves clients across multiple
               continents. Our strategic location in the Asia-Pacific region allows us to provide excellent coverage for
-              Australian businesses while also serving clients in Asia, Europe, and North America.
+              Indian businesses while also serving clients in Asia, Europe, and North America.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Sydney Headquarters</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Mumbai Headquarters</h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-3">
                   {`Located in Mumbai innovation district, our headquarters serves as the central hub for our
                   operations, housing our core development team and leadership.`}
                 </p>
                 {/* <p className="text-sm text-gray-600 dark:text-gray-400">
-                  123 Innovation Drive, Sydney, NSW 2000, Australia
+                  123 Innovation Drive, Mumbai, NSW 2000, India
                 </p> */}
               </div>
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Global Client Base</h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-3">
-                  We proudly serve clients across Australia, New Zealand, Singapore, Japan, United Kingdom, and the
+                  We proudly serve clients across India, New Zealand, Singapore, Japan, United Kingdom, and the
                   United States, with 24/7 support capabilities.
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">

@@ -58,7 +58,7 @@ export default function ContactPage() {
             is always excited to collaborate and explore new possibilities with forward-thinking businesses.`}
           </p>
           <p className="text-lg leading-normal text-gray-600 dark:text-gray-400 mb-12">
-            Based in Sydney, Australia, we serve clients globally with comprehensive software development, AI
+            Based in Mumbai, India, we serve clients globally with comprehensive software development, AI
             automation, cloud solutions, and digital transformation services. Get in touch today for a free consultation
             and discover how we can help accelerate your business growth through innovative technology.
           </p>
@@ -118,7 +118,7 @@ export default function ContactPage() {
           <div className="space-y-8">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-                Get in Touch with Our Sydney Team
+                Get in Touch with Our Mumbai Team
               </h2>
 
               <div className="space-y-6">
@@ -127,13 +127,13 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Sydney Headquarters</h3>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Mumbai Headquarters</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-2">
-                      123 Innovation Drive
+                      Borivali
                       <br />
-                      Sydney, NSW 2000
+                      Mumbai, 
                       <br />
-                      Australia
+                      India
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                      {` Located in India's premier tech district, easily accessible by public transport`}
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Global Service Coverage</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-2">
-                      Australia • New Zealand • Singapore • Japan • UK • USA
+                      India • New Zealand • Singapore • Japan • UK • USA
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Remote collaboration with clients worldwide
