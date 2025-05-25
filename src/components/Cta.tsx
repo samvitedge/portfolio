@@ -15,7 +15,7 @@ export const Cta = () => {
         </div>
         <div className="flex-shrink-0 w-full text-center lg:w-auto">
           <a
-            href="mailto:info@samvitedge.com"
+            href="mailto:contact@samvitedge.com"
             className="inline-block py-3 mx-auto text-lg font-medium text-center text-indigo-600 bg-white rounded-md px-7 lg:px-10 lg:py-5"
           >
             Get in Touch

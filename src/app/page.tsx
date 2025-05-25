@@ -8,6 +8,41 @@ import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 
 import { benefitOne, benefitTwo } from "@/components/data";
+
+
+const faqdata = [
+  {
+    question: "What services does Samvit Edge offer?",
+    answer:
+      "We specialize in full-stack software development, responsive web/app design, and AI-powered automation solutions tailored to your business needs.",
+  },
+  {
+    question: "Can you build AI features into our existing systems?",
+    answer:
+      "Absolutely! We can integrate AI/ML models into your existing workflows to improve automation, insights, and performance.",
+  },
+  {
+    question: "Do you work with startups or only large companies?",
+    answer:
+      "We work with businesses of all sizes from early-stage startups to established enterprises offering scalable solutions for every phase.",
+  },
+  {
+    question: "What technologies do you use?",
+    answer:
+      "We use modern tools like React, Next.js, Node.js, Django, Python, MongoDB, and integrate AI models using frameworks like TensorFlow, PyTorch, and OpenAI APIs.",
+  },
+  {
+    question: "How does the development process work?",
+    answer:
+      "Our agile process includes discovery, planning, iterative development, feedback loops, and post-deployment support to ensure your vision becomes reality.",
+  },
+  {
+    question: "What's your pricing model?",
+    answer:
+      "We offer flexible pricing hourly, milestone-based, or fixed depending on the project scope and complexity. Let's discuss what fits your goals best.",
+  },
+]
+
 export default function Home() {
   return (
     <Container>
@@ -16,7 +51,7 @@ export default function Home() {
         preTitle="Samvit Edge"
         title="Why Partner with Samvit Edge?"
       >
-        At Samvit Edge, we don’t just deliver IT solutions we solve real problems with smart design, clean architecture, and rapid execution. Our team blends technical depth with product sense to help businesses move fast and build right.
+        {"At Samvit Edge, we don’t just deliver IT solutions we solve real problems with smart design, clean architecture, and rapid execution. Our team blends technical depth with product sense to help businesses move fast and build right."}
       </SectionTitle>
 
       <Benefits data={benefitOne} />
@@ -48,7 +83,7 @@ export default function Home() {
         conversion rate as well as support or chat requests.
       </SectionTitle>
 
-      <Faq />
+      <Faq faqdata={faqdata} />
       <Cta />
     </Container>
   );

@@ -12,7 +12,7 @@ import benefitTwoImg from "../../public/img/benefit-two.png";
 
 const benefitOne = {
   title: "Why Choose Samvit Edge?",
-  desc: "At Samvit Edge, we merge technology with creativity to deliver tailored, scalable, and future-ready digital solutions. Here’s what sets us apart:",
+  desc: "At Samvit Edge, we merge technology with creativity to deliver tailored, scalable, and future-ready digital solutions. Here's what sets us apart:",
   image: benefitOneImg,
   bullets: [
     {
@@ -51,12 +51,48 @@ const benefitTwo = {
     },
     {
       title: "AI-Powered Automation",
-      desc: "We embed artificial intelligence into your workflows — from predictive analytics and recommendation engines to intelligent chatbots and automated operations. Leverage the power of machine learning to drive efficiency and innovation.",
+      desc: "We embed artificial intelligence into your workflows from predictive analytics and recommendation engines to intelligent chatbots and automated operations. Leverage the power of machine learning to drive efficiency and innovation.",
       icon: <ChartBarSquareIcon />,
     },
   ],
 };
 
 
+const mailto = "mailto:contact@samvitedge.com?subject=Free Consultation Request&body=Hi Samvit Edge Team,%0D%0A%0D%0AI'm interested in scheduling a free consultation to discuss how your tech solutions can help my business. Please let me know your availability.%0D%0A%0D%0AThanks,%0D%0A[Your Name]"
 
-export {benefitOne, benefitTwo};
+
+const ourTeam = [
+  {
+    name: "Monish",
+    role: "Data Analyst & AI Expert",
+    expertise: "Data analysis, social media insights, and artificial intelligence",
+    experience: "N/A",
+  },
+  {
+    name: "Aditya",
+    role: "SQL & Database Administrator",
+    expertise: "Relational databases, SQL optimization, and database administration",
+    experience: "N/A",
+  },
+  {
+    name: "Gaurav",
+    role: "Python & Backend Expert",
+    expertise: "Python development, backend architecture, and APIs",
+    experience: "N/A",
+  },
+  {
+    name: "Vivek",
+    role: "Team Lead",
+    expertise: "This is about me",
+    experience: "N/A",
+  },
+  {
+    name: "Brijesh",
+    role: "Python Backend Developer",
+    expertise: "Backend systems, Python frameworks, and automation",
+    experience: "N/A",
+  },
+];
+
+
+export {benefitOne, benefitTwo, mailto, ourTeam};
