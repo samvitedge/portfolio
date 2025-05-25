@@ -1,106 +1,77 @@
+
+
+
 "use client";
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
-import Image from "next/image"
-import { Disclosure } from "@headlessui/react";
+import Image from "next/image";
+import { Disclosure, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "lucide-react";
+
 
 export const Navbar = () => {
   const navigation = [
     { text: "Services", href: "/services" },
-    { text: "about", href: "/about" },
-    { text: "contact", href: "/contact" },
+    { text: "About", href: "/about" },
+    { text: "Contact", href: "/contact" },
   ];
 
   return (
-    <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1">
-        {/* Logo  */}
-        <Link href="/">
-          <span className="flex items-center space-x-3 text-2xl font-medium text-indigo-500 dark:text-gray-100">
-            <span>
-              <Image
-                src="/img/logoo.png"
-                width="40"
-                alt="N"
-                height="40"
-                className="w-10"
-              />
-            </span>
-            <img
-              width={200}
-              src="/img/name.PNG"
-              className="hidden md:block"
-              alt="Logo Text"
-            />
-          </span>
-        </Link>
+    <Disclosure as="nav" className="bg-white dark:bg-gray-900 fixed w-full z-50 shadow">
+      {({ open, close }) => (
+        <>
+          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-3 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+              <Image src="/img/logoo.png" width={40} height={40} alt="Logo" />
+              <img src="/img/name.PNG" width={200} alt="Logo Text" className="hidden md:block" />
+            </Link>
 
-        {/* get started  */}
-        <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
-          <ThemeChanger />
-          {/* <div className="hidden mr-3 lg:flex nav__item">
-              <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
-                Get Started
-              </Link>
-            </div> */}
-        </div>
-
-        <Disclosure>
-          {({ open }) => (
-            <>
-              <Disclosure.Button
-                aria-label="Toggle Menu"
-                className="px-2 py-1 text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700">
-                <svg
-                  className="w-6 h-6 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24">
-                  {open && (
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-                    />
-                  )}
-                  {!open && (
-                    <path
-                      fillRule="evenodd"
-                      d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                    />
-                  )}
-                </svg>
-              </Disclosure.Button>
-
-              <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
-                <>
-                  {navigation.map((item, index) => (
-                    <Link key={index} href={item.href} className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
-                      {item.text}
-                    </Link>
-                  ))}
-                  <Link href="/" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">
-                    Get Started
-                  </Link>
-                </>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-
-        <div className="hidden text-center lg:flex lg:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
-                <Link href={menu.href} className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
-                  {menu.text}
+            {/* Desktop nav */}
+            <div className="hidden lg:flex space-x-8 items-center">
+              {navigation.map((item) => (
+                <Link key={item.text} href={item.href} className="text-gray-700 dark:text-gray-200 hover:text-indigo-500 transition">
+                  {item.text}
                 </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+              ))}
+              <ThemeChanger />
+            </div>
 
-      </nav>
-    </div>
+            {/* Mobile menu button */}
+            <div className="lg:hidden flex items-center">
+              <ThemeChanger />
+              <Disclosure.Button className="ml-2 inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
+                {open ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+              </Disclosure.Button>
+            </div>
+          </div>
+
+          {/* Mobile menu panel (absolute positioned) */}
+          <Transition
+            enter="transition duration-200 ease-out"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition duration-100 ease-in"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Disclosure.Panel className="lg:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-md">
+              <div className="px-4 pt-4 pb-6 space-y-4">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.text}
+                    href={item.href}
+                    onClick={() => close()}
+                    className="block text-gray-700 dark:text-gray-200 hover:text-indigo-500 transition"
+                  >
+                    {item.text}
+                  </Link>
+                ))}
+              </div>
+            </Disclosure.Panel>
+          </Transition>
+        </>
+      )}
+    </Disclosure>
   );
-}
-
+};
