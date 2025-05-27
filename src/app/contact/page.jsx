@@ -1,4 +1,3 @@
-"use client"
 import { Container } from "@/components/Container"
 import { mailto } from "@/components/data"
 import {
@@ -15,34 +14,9 @@ import {
   Globe,
   Shield,
 } from "lucide-react"
-import { useState } from "react"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    subject: "",
-    projectType: "",
-    budget: "",
-    timeline: "",
-    message: "",
-  })
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // You would typically send this to your backend or email service
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -269,7 +243,7 @@ export default function ContactPage() {
               consultations are completely free with no obligations.`}
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action="/api/contact" method="POST" className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
@@ -279,8 +253,6 @@ export default function ContactPage() {
                     type="text"
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     placeholder="Your full name"
@@ -295,8 +267,6 @@ export default function ContactPage() {
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     placeholder="your.email@company.com"
@@ -313,8 +283,6 @@ export default function ContactPage() {
                     type="text"
                     id="company"
                     name="company"
-                    value={formData.company}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     placeholder="Your company name"
                   />
@@ -328,8 +296,6 @@ export default function ContactPage() {
                     type="tel"
                     id="phone"
                     name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     placeholder="+61 xxx xxx xxx"
                   />
@@ -343,8 +309,6 @@ export default function ContactPage() {
                 <select
                   id="projectType"
                   name="projectType"
-                  value={formData.projectType}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                 >
@@ -368,8 +332,6 @@ export default function ContactPage() {
                   <select
                     id="budget"
                     name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                   >
                     <option value="">Select budget range</option>
@@ -389,8 +351,6 @@ export default function ContactPage() {
                   <select
                     id="timeline"
                     name="timeline"
-                    value={formData.timeline}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                   >
                     <option value="">Select timeline</option>
@@ -412,8 +372,6 @@ export default function ContactPage() {
                   type="text"
                   id="subject"
                   name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                   placeholder="Brief description of your project"
@@ -427,8 +385,6 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows={6}
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none"

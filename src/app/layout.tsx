@@ -27,7 +27,7 @@ export default function RootLayout({
           <Navbar />
           <div className="pt-6" >{children}</div>
           <Footer />
-          <PopupWidget />
+          {/* <PopupWidget /> */}
         </ThemeProvider>
       </body>
     </html>

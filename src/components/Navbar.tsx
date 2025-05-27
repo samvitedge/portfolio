@@ -3,11 +3,11 @@
 
 "use client";
 import Link from "next/link";
-import ThemeChanger from "./DarkSwitch";
+// import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "lucide-react";
-
+import Logo from "./Logo"
 
 export const Navbar = () => {
   const navigation = [
@@ -16,16 +16,14 @@ export const Navbar = () => {
     { text: "Contact", href: "/contact" },
   ];
 
+
   return (
     <Disclosure as="nav" className="bg-white dark:bg-gray-900 fixed w-full z-50 shadow">
       {({ open, close }) => (
         <>
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 text-2xl font-medium text-indigo-500 dark:text-gray-100">
-              <Image src="/img/logoo.png" width={40} height={40} alt="Logo" />
-              <img src="/img/name.PNG" width={200} alt="Logo Text" className="hidden md:block" />
-            </Link>
+            <Logo/>
 
             {/* Desktop nav */}
             <div className="hidden lg:flex space-x-8 items-center">
@@ -34,12 +32,12 @@ export const Navbar = () => {
                   {item.text}
                 </Link>
               ))}
-              <ThemeChanger />
+              {/* <ThemeChanger /> */}
             </div>
 
             {/* Mobile menu button */}
             <div className="lg:hidden flex items-center">
-              <ThemeChanger />
+              {/* <ThemeChanger /> */}
               <Disclosure.Button className="ml-2 inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                 {open ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
               </Disclosure.Button>
