@@ -72,19 +72,19 @@ const ourTeam = [
     name: "Monish",
     role: "Data Analyst & AI Expert",
     expertise: "Data analysis, social media insights, and artificial intelligence",
-    experience: "N/A",
+    experience: "7+ Years",
   },
   {
     name: "Aditya",
     role: "SQL & Database Administrator",
     expertise: "Relational databases, SQL optimization, and database administration",
-    experience: "N/A",
+    experience: "4+ Years",
   },
   {
     name: "Gaurav",
     role: "Python & Backend Expert",
     expertise: "Python development, backend architecture, and APIs",
-    experience: "N/A",
+    experience: "2+ Years",
   },
   {
     name: "Vivek",
@@ -96,7 +96,7 @@ const ourTeam = [
     name: "Brijesh",
     role: "Python Backend Developer",
     expertise: "Backend systems, Python frameworks, and automation",
-    experience: "N/A",
+    experience: "3+ Years",
   },
 ];
 

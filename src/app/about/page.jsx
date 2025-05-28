@@ -28,11 +28,11 @@ export default function AboutPage() {
 
       {/* Company Stats */}
       <Container className="pb-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 mx-auto">
           {[
             { number: "150+", label: "Projects Completed", icon: Trophy },
             { number: "50+", label: "Happy Clients", icon: Heart },
-            { number: "5+", label: "Years Experience", icon: Calendar },
+            { number: "1+", label: "Years Experience", icon: Calendar },
             { number: "15+", label: "Team Members", icon: Users },
           ].map((stat, index) => (
             <div key={index} className="text-center">
@@ -115,7 +115,7 @@ export default function AboutPage() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+              {/* <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Key Milestones</h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
                   <li>• 2019: Founded in Mumbai, India</li>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                   <li>• 2023: Launched cloud transformation practice</li>
                   <li>• 2024: Expanded internationally</li>
                 </ul>
-              </div>
+              </div> */}
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                   Recognition & Certifications

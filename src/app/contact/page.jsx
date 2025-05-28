@@ -40,7 +40,7 @@ export default function ContactPage() {
       </Container>
 
       {/* Contact Methods Overview */}
-      <Container className="pb-12">
+      {/* <Container className="pb-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
           {[
             {
@@ -83,7 +83,7 @@ export default function ContactPage() {
             </div>
           ))}
         </div>
-      </Container>
+      </Container> */}
 
       {/* Main Contact Content */}
       <Container className="pb-16">
@@ -96,24 +96,20 @@ export default function ContactPage() {
               </h2>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
+                {/* <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Mumbai Headquarters</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-2">
-                      Borivali
-                      <br />
-                      Mumbai, 
-                      <br />
                       India
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                      {` Located in India's premier tech district, easily accessible by public transport`}
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -121,7 +117,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Phone & WhatsApp</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-2">+61 123 456 789</p>
+                    <p className="text-gray-700 dark:text-gray-300 mb-2">+91 98933 69449</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Available for urgent inquiries and project discussions
                     </p>
@@ -136,16 +132,7 @@ export default function ContactPage() {
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Email Contacts</h3>
                     <div className="space-y-1 text-gray-700 dark:text-gray-300">
                       <p>
-                        <strong>General Inquiries:</strong> hello@samvitedge.com
-                      </p>
-                      <p>
-                        <strong>New Projects:</strong> projects@samvitedge.com
-                      </p>
-                      <p>
-                        <strong>Support:</strong> support@samvitedge.com
-                      </p>
-                      <p>
-                        <strong>Partnerships:</strong> partners@samvitedge.com
+                        <strong>General Inquiries:</strong> info@samvitedge.com
                       </p>
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
@@ -160,9 +147,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Global Service Coverage</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-2">
+                    {/* <p className="text-gray-700 dark:text-gray-300 mb-2">
                       India • New Zealand • Singapore • Japan • UK • USA
-                    </p>
+                    </p> */}
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Remote collaboration with clients worldwide
                     </p>
@@ -214,8 +201,8 @@ export default function ContactPage() {
                 <div className="flex gap-4">
                   {[
                     { icon: Linkedin, label: "LinkedIn", handle: "@samvitedge" },
-                    { icon: Twitter, label: "Twitter", handle: "@samvitedge" },
-                    { icon: Github, label: "GitHub", handle: "samvitedge" },
+                    // { icon: Twitter, label: "Twitter", handle: "@samvitedge" },
+                    // { icon: Github, label: "GitHub", handle: "samvitedge" },
                     { icon: Instagram, label: "Instagram", handle: "@samvitedge" },
                   ].map((social, index) => (
                     <a
