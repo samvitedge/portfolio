@@ -63,6 +63,12 @@ const mailto = "mailto:contact@samvitedge.com?subject=Free Consultation Request&
 
 const ourTeam = [
   {
+    name: "Krishika Vyas",
+    role: "Growth Marketing Expert",
+    expertise: "Digital marketing strategies, growth hacking, customer acquisition, and brand development",
+    experience: "4+ Years",
+  },
+  {
     name: "Monish",
     role: "Data Analyst & AI Expert",
     expertise: "Data analysis, social media insights, and artificial intelligence",
@@ -82,9 +88,9 @@ const ourTeam = [
   },
   {
     name: "Vivek",
-    role: "Team Lead",
-    expertise: "This is about me",
-    experience: "N/A",
+    role: "Software Engineer",
+    expertise: "Full-stack development, real-time systems, backend architecture, and algorithmic trading platforms",
+    experience: "3+ Years",
   },
   {
     name: "Brijesh",
