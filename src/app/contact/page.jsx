@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container"
 import { mailto } from "@/components/data"
+import { Faq } from "@/components/Faq";
 import {
   MapPin,
   Phone,
@@ -13,375 +14,275 @@ import {
   Calendar,
   Globe,
   Shield,
+  CheckCircle,
 } from "lucide-react"
 
+
+// Contact information data
+const contactInfo = [
+  {
+    icon: Phone,
+    title: "Phone & WhatsApp",
+    content: [
+      { type: "text", text: "+91 98933 69449" },
+      { type: "note", text: "Available for urgent inquiries and project discussions" },
+    ],
+  },
+  {
+    icon: Mail,
+    title: "Email Contacts",
+    content: [
+      { type: "text", text: "General Inquiries: info@samvitedge.com" },
+      { type: "note", text: "We respond to all inquiries within 24 hours" },
+    ],
+  },
+  {
+    icon: Globe,
+    title: "Global Service Coverage",
+    content: [
+      { type: "note", text: "Remote collaboration with clients worldwide" },
+    ],
+  },
+];
+
+// Business hours data
+const businessHours = [
+  { label: "Monday – Friday:", value: "9:00 AM – 6:00 PM (AEST)" },
+  { label: "Saturday:", value: "10:00 AM – 2:00 PM (Project support)" },
+  { label: "Sunday:", value: "Closed" },
+];
+
+// Social links data
+const socialLinks = [
+  { icon: Linkedin, label: "LinkedIn", handle: "@samvitedge", href: "#" },
+  { icon: Instagram, label: "Instagram", handle: "@samvitedge", href: "#" },
+];
+
+// Form field configuration
+const formFields = [
+  {
+    id: "name",
+    label: "Full Name",
+    type: "text",
+    required: true,
+    placeholder: "Your full name",
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: "email",
+    label: "Email Address",
+    type: "email",
+    required: true,
+    placeholder: "your.email@company.com",
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: "company",
+    label: "Company/Organization",
+    type: "text",
+    required: false,
+    placeholder: "Your company name",
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: "phone",
+    label: "Phone Number",
+    type: "tel",
+    required: false,
+    placeholder: "+91 xxx xxx xxx",
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: "projectType",
+    label: "Project Type",
+    type: "select",
+    required: true,
+    options: [
+      { value: "", label: "Select project type" },
+      { value: "web-development", label: "Web Application Development" },
+      { value: "mobile-development", label: "Mobile App Development" },
+      { value: "custom-software", label: "Custom Software Development" },
+      { value: "ai-automation", label: "AI & Automation Solutions" },
+      { value: "cloud-devops", label: "Cloud & DevOps Services" },
+      { value: "consultation", label: "Technology Consultation" },
+      { value: "other", label: "Other" },
+    ],
+    colSpan: "col-span-full",
+  },
+  {
+    id: "budget",
+    label: "Project Budget (AUD)",
+    type: "select",
+    required: false,
+    options: [
+      { value: "", label: "Select budget range" },
+      { value: "under-25k", label: "Under $25,000" },
+      { value: "25k-50k", label: "$25,000 - $50,000" },
+      { value: "50k-100k", label: "$50,000 - $100,000" },
+      { value: "100k-250k", label: "$100,000 - $250,000" },
+      { value: "over-250k", label: "Over $250,000" },
+      { value: "discuss", label: "Prefer to discuss" },
+    ],
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: "timeline",
+    label: "Project Timeline",
+    type: "select",
+    required: false,
+    options: [
+      { value: "", label: "Select timeline" },
+      { value: "asap", label: "ASAP (Rush project)" },
+      { value: "1-3-months", label: "1-3 months" },
+      { value: "3-6-months", label: "3-6 months" },
+      { value: "6-12-months", label: "6-12 months" },
+      { value: "over-12-months", label: "Over 12 months" },
+      { value: "flexible", label: "Flexible timeline" },
+    ],
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: "subject",
+    label: "Subject",
+    type: "text",
+    required: true,
+    placeholder: "Brief description of your project",
+    colSpan: "col-span-full",
+  },
+  {
+    id: "message",
+    label: "Project Details",
+    type: "textarea",
+    required: true,
+    placeholder: "Please provide detailed information about your project requirements, goals, target audience, and any specific features or functionality you need. The more details you provide, the better we can understand your needs and provide an accurate proposal.",
+    rows: 6,
+    colSpan: "col-span-full",
+  },
+];
+
+// FAQ data
+const faqs = [
+  {
+    question: "How quickly can you start my project?",
+    answer: "We typically begin new projects within 1-2 weeks of contract signing. For urgent projects, we can often accommodate faster start times depending on our current workload and project complexity.",
+  },
+  {
+    question: "Do you offer fixed-price or hourly billing?",
+    answer: "We offer both models depending on project scope. Fixed-price works well for clearly defined projects, while hourly billing is ideal for ongoing development or projects with evolving requirements.",
+  },
+  {
+    question: "Can you work with our existing development team?",
+    answer: "Absolutely! We frequently collaborate with in-house teams, providing additional expertise, handling specific components, or offering technical leadership and mentoring.",
+  },
+  {
+    question: "What happens after project completion?",
+    answer: "We provide comprehensive documentation, training, and ongoing support options. Many clients choose our maintenance packages for continued updates, security patches, and feature enhancements.",
+  },
+  {
+    question: "Do you sign NDAs and confidentiality agreements?",
+    answer: "Yes, we're happy to sign NDAs and confidentiality agreements before discussing your project. We understand the importance of protecting your intellectual property and business ideas.",
+  },
+  {
+    question: "Can you help with project planning and requirements?",
+    answer: "Definitely! Our business analysts and project managers excel at helping clients refine their ideas, define requirements, and create detailed project roadmaps for successful execution.",
+  },
+];
+
+// Render form field based on type
+const renderFormField = (field) => {
+  const commonProps = {
+    id: field.id,
+    name: field.id,
+    required: field.required,
+    className: "w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white",
+    placeholder: field.placeholder,
+  };
+
+  switch (field.type) {
+    case "select":
+      return (
+        <select {...commonProps}>
+          {field.options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      );
+    case "textarea":
+      return <textarea {...commonProps} rows={field.rows} />;
+    default:
+      return <input type={field.type} {...commonProps} />;
+  }
+};
+
 export default function ContactPage() {
-
-
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
       {/* Hero Section */}
-      <Container className="pt-16 pb-12">
-        <div className="max-w-4xl">
-          <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white mb-6">
-            {"Contact Samvit Edge - Let's Build Something Amazing Together"}
+      <Container className="pt-20 pb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-block mb-6 px-4 py-1.5 bg-primary-50 dark:bg-primary-900/30 rounded-full">
+            <span className="text-primary-600 dark:text-primary-400 font-medium text-sm">
+              Get in touch with our team
+            </span>
+          </div>
+          <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 lg:text-5xl xl:text-6xl dark:text-white mb-6">
+            Let's Build Something <span className="text-primary-600 dark:text-primary-400">Amazing</span> Together
           </h1>
-          <p className="text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300 mb-8">
-            {`Whether you have a groundbreaking project idea, need expert technology consultation, or want to explore
-            partnership opportunities we're here to help. Our team of experienced developers, designers, and strategists
-            is always excited to collaborate and explore new possibilities with forward-thinking businesses.`}
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            Whether you have a groundbreaking project idea, need expert technology consultation, or want to explore
+            partnership opportunities — our team of experienced developers, designers, and strategists is ready to
+            collaborate and bring your vision to life.
           </p>
-          <p className="text-lg leading-normal text-gray-600 dark:text-gray-400 mb-12">
-            Based in Mumbai, India, we serve clients globally with comprehensive software development, AI
-            automation, cloud solutions, and digital transformation services. Get in touch today for a free consultation
-            and discover how we can help accelerate your business growth through innovative technology.
-          </p>
+          <div className="flex flex-wrap gap-3 mb-12">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> Software Development
+            </span>
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> AI Automation
+            </span>
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> Cloud Solutions
+            </span>
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> Digital Transformation
+            </span>
+          </div>
         </div>
       </Container>
 
-      {/* Contact Methods Overview */}
-      {/* <Container className="pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
-          {[
-            {
-              icon: MessageSquare,
-              title: "Free Consultation",
-              description: "Schedule a 30-minute strategy call",
-              action: "Book Now",
-            },
-            {
-              icon: Mail,
-              title: "Email Us",
-              description: "Get a response within 24 hours",
-              action: "Send Email",
-            },
-            {
-              icon: Phone,
-              title: "Call Us",
-              description: "Speak directly with our team",
-              action: "Call Now",
-            },
-            {
-              icon: Calendar,
-              title: "Project Planning",
-              description: "Detailed project discussion",
-              action: "Schedule",
-            },
-          ].map((method, index) => (
-            <div
-              key={index}
-              className="text-center bg-gray-50 dark:bg-gray-800 p-6 rounded-lg hover:shadow-md transition-shadow duration-200"
-            >
-              <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <method.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{method.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{method.description}</p>
-              <button className="text-indigo-600 dark:text-indigo-400 font-medium text-sm hover:underline">
-                {method.action}
-              </button>
-            </div>
-          ))}
-        </div>
-      </Container> */}
-
-      {/* Main Contact Content */}
-      <Container className="pb-16">
-        <div className="grid gap-12 lg:grid-cols-2">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-                Get in Touch with Our Mumbai Team
-              </h2>
-
-              <div className="space-y-6">
-                {/* <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Mumbai Headquarters</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-2">
-                      India
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                     {` Located in India's premier tech district, easily accessible by public transport`}
-                    </p>
-                  </div>
-                </div> */}
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Phone & WhatsApp</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-2">+91 98933 69449</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Available for urgent inquiries and project discussions
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Email Contacts</h3>
-                    <div className="space-y-1 text-gray-700 dark:text-gray-300">
-                      <p>
-                        <strong>General Inquiries:</strong> info@samvitedge.com
-                      </p>
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                      We respond to all inquiries within 24 hours
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Global Service Coverage</h3>
-                    {/* <p className="text-gray-700 dark:text-gray-300 mb-2">
-                      India • New Zealand • Singapore • Japan • UK • USA
-                    </p> */}
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Remote collaboration with clients worldwide
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Business Hours */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Business Hours & Availability
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div>
-                    <div className="space-y-2">
-                      <p className="text-lg text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">Monday – Friday:</span> 9:00 AM – 6:00 PM (AEST)
-                      </p>
-                      <p className="text-lg text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">Saturday:</span> 10:00 AM – 2:00 PM (Project support)
-                      </p>
-                      <p className="text-lg text-gray-700 dark:text-gray-300">
-                        <span className="font-semibold">Sunday:</span> Closed
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
-                        <strong>Emergency Support:</strong> 24/7 available for critical production issues
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Media & Professional Networks */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Connect with Us Online
-              </h2>
-              <div className="space-y-4">
-                <p className="text-gray-700 dark:text-gray-300">
-                  Follow us on social media for the latest updates, tech insights, and behind-the-scenes content from
-                  our development team.
-                </p>
-                <div className="flex gap-4">
-                  {[
-                    { icon: Linkedin, label: "LinkedIn", handle: "@samvitedge" },
-                    // { icon: Twitter, label: "Twitter", handle: "@samvitedge" },
-                    // { icon: Github, label: "GitHub", handle: "samvitedge" },
-                    { icon: Instagram, label: "Instagram", handle: "@samvitedge" },
-                  ].map((social, index) => (
-                    <a
-                      key={index}
-                      href="#"
-                      className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors duration-200 group"
-                      aria-label={social.label}
-                      title={`${social.label} - ${social.handle}`}
-                    >
-                      <social.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-200" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Enhanced Contact Form */}
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
+      {/* Contact Section */}
+      <Container className="pb-20">
+        <div className="grid gap-12 lg:grid-cols-2 max-w-screen-xl mx-auto">
+          {/* Contact Form Column */}
+          <div className=" dark:bg-gray-800 rounded-2xl shadow-card p-3 order-2 lg:order-1">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
               Start Your Project Today
             </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              {`Tell us about your project and we'll get back to you with a detailed proposal and timeline. All
-              consultations are completely free with no obligations.`}
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
+              Tell us about your project and we'll get back to you with a detailed proposal and timeline. All
+              consultations are completely free with no obligations.
             </p>
 
             <form action="/api/contact" method="POST" className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                    placeholder="Your full name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                    placeholder="your.email@company.com"
-                  />
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {formFields.map((field) => (
+                  <div key={field.id} className={field.colSpan}>
+                    <label
+                      htmlFor={field.id}
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      {field.label} {field.required && <span className="text-red-500">*</span>}
+                    </label>
+                    {renderFormField(field)}
+                  </div>
+                ))}
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="company" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    Company/Organization
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                    placeholder="Your company name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                    placeholder="+61 xxx xxx xxx"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="projectType" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                  Project Type *
-                </label>
-                <select
-                  id="projectType"
-                  name="projectType"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                >
-                  <option value="">Select project type</option>
-                  <option value="web-development">Web Application Development</option>
-                  <option value="mobile-development">Mobile App Development</option>
-                  <option value="custom-software">Custom Software Development</option>
-                  <option value="ai-automation">AI & Automation Solutions</option>
-                  <option value="cloud-devops">Cloud & DevOps Services</option>
-                  <option value="ui-ux-design">UI/UX Design Services</option>
-                  <option value="consultation">Technology Consultation</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="budget" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    Project Budget (AUD)
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="under-25k">Under $25,000</option>
-                    <option value="25k-50k">$25,000 - $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="100k-250k">$100,000 - $250,000</option>
-                    <option value="over-250k">Over $250,000</option>
-                    <option value="discuss">Prefer to discuss</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="timeline" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    Project Timeline
-                  </label>
-                  <select
-                    id="timeline"
-                    name="timeline"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                  >
-                    <option value="">Select timeline</option>
-                    <option value="asap">ASAP (Rush project)</option>
-                    <option value="1-3-months">1-3 months</option>
-                    <option value="3-6-months">3-6 months</option>
-                    <option value="6-12-months">6-12 months</option>
-                    <option value="over-12-months">Over 12 months</option>
-                    <option value="flexible">Flexible timeline</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                  placeholder="Brief description of your project"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-lg font-medium text-gray-900 dark:text-white mb-2">
-                  Project Details *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none"
-                  placeholder="Please provide detailed information about your project requirements, goals, target audience, and any specific features or functionality you need. The more details you provide, the better we can understand your needs and provide an accurate proposal."
-                />
-              </div>
-
-              <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+              <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
                 <div className="flex items-start gap-3">
-                  <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                  <Shield className="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Privacy & Security</h4>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
@@ -394,91 +295,138 @@ export default function ContactPage() {
 
               <button
                 type="submit"
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 shadow-sm"
               >
                 <MessageSquare className="w-5 h-5" />
                 Send Project Inquiry
               </button>
 
-              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+              <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
                 Expect a detailed response within 24 hours including project timeline and cost estimate
               </p>
             </form>
+          </div>
+
+          {/* Contact Info Column */}
+          <div className="space-y-8 order-1 lg:order-2">
+            <section>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
+                Get in Touch with Our Mumbai Team
+              </h2>
+              <div className="space-y-6">
+                {contactInfo.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-5 p-5 dark:bg-gray-800 rounded-xl  hover:shadow-subtle transition-shadow duration-300"
+                  >
+                    <div className="w-12 h-12 bg-primary-50 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                      <item.icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
+                      {item.content.map((line, idx) => (
+                        <p
+                          key={idx}
+                          className={`${
+                            line.type === "note"
+                              ? "text-sm text-gray-500 dark:text-gray-400 mt-2"
+                              : "text-gray-700 dark:text-gray-300"
+                          }`}
+                        >
+                          {line.text}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="p-5  dark:bg-gray-800 rounded-xl hover:shadow-subtle transition-shadow duration-300">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Business Hours & Availability</h2>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-primary-50 dark:bg-primary-900/30 rounded-lg flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                </div>
+                <div className="space-y-2">
+                  {businessHours.map((b, i) => (
+                    <p key={i} className="text-gray-700 dark:text-gray-300">
+                      <span className="font-semibold">{b.label}</span> {b.value}
+                    </p>
+                  ))}
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 p-2 bg-gray-50 dark:bg-gray-700/50 rounded-md">
+                    <strong>Emergency Support:</strong> 24/7 available for critical production issues
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="p-5  dark:bg-gray-800 rounded-xl hover:shadow-subtle transition-shadow duration-300">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Connect with Us Online</h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Follow us on social media for the latest updates, tech insights, and behind-the-scenes content from our
+                development team.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="w-10 h-10 bg-primary-50 dark:bg-primary-900/30 rounded-lg flex items-center justify-center hover:bg-primary-100 dark:hover:bg-primary-800/50 transition-colors duration-200 group"
+                    aria-label={social.label}
+                    title={`${social.label} - ${social.handle}`}
+                  >
+                    <social.icon className="w-5 h-5 text-primary-600 dark:text-primary-400 group-hover:scale-110 transition-transform duration-200" />
+                  </a>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </Container>
 
       {/* FAQ Section */}
-      <Container className="py-16">
+      <Container className="py-16 bg-gray-50 dark:bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Frequently Asked Questions About Working with Us
+            Frequently Asked Questions
           </h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            {[
-              {
-                question: "How quickly can you start my project?",
-                answer:
-                  "We typically begin new projects within 1-2 weeks of contract signing. For urgent projects, we can often accommodate faster start times depending on our current workload and project complexity.",
-              },
-              {
-                question: "Do you offer fixed-price or hourly billing?",
-                answer:
-                  "We offer both models depending on project scope. Fixed-price works well for clearly defined projects, while hourly billing is ideal for ongoing development or projects with evolving requirements.",
-              },
-              {
-                question: "Can you work with our existing development team?",
-                answer:
-                  "Absolutely! We frequently collaborate with in-house teams, providing additional expertise, handling specific components, or offering technical leadership and mentoring.",
-              },
-              {
-                question: "What happens after project completion?",
-                answer:
-                  "We provide comprehensive documentation, training, and ongoing support options. Many clients choose our maintenance packages for continued updates, security patches, and feature enhancements.",
-              },
-              {
-                question: "Do you sign NDAs and confidentiality agreements?",
-                answer:
-                  "Yes, we're happy to sign NDAs and confidentiality agreements before discussing your project. We understand the importance of protecting your intellectual property and business ideas.",
-              },
-              {
-                question: "Can you help with project planning and requirements?",
-                answer:
-                  "Definitely! Our business analysts and project managers excel at helping clients refine their ideas, define requirements, and create detailed project roadmaps for successful execution.",
-              },
-            ].map((faq, index) => (
-              <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">{faq.question}</h3>
-                <p className="text-gray-700 dark:text-gray-300">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
+          <Faq faqdata={faqs} />
         </div>
       </Container>
 
       {/* CTA Section */}
-      <Container className="py-16">
-        <div className="text-center bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 rounded-2xl p-12">
+      <Container className="py-20">
+        <div className="text-center bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/20 rounded-2xl p-12 shadow-elevated">
+          <div className="inline-block mb-6 px-4 py-1.5 bg-white dark:bg-gray-800 rounded-full shadow-sm">
+            <span className="text-primary-600 dark:text-primary-400 font-medium text-sm">Ready when you are</span>
+          </div>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to Start Your Digital Transformation?
           </h2>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            {
-              "Join hundreds of satisfied clients who have transformed their businesses with our innovative technology solutions. Get a free consultation and detailed project proposal with no obligations."
-            }
+            Join hundreds of satisfied clients who have transformed their businesses with our innovative technology
+            solutions. Get a free consultation and detailed project proposal with no obligations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={mailto} className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
-              <Calendar className="w-4 h-4" />
+            <a
+              href={mailto}
+              className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 shadow-sm"
+            >
+              <Calendar className="w-5 h-5" />
               Schedule Free Consultation
             </a>
-            {/* <button className="border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
-              <Phone className="w-4 h-4" />
+            <a
+              href="#"
+              className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium py-3 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 shadow-sm border border-gray-200 dark:border-gray-700"
+            >
+              <Phone className="w-5 h-5" />
               Call Us Now
-            </button> */}
+            </a>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-6">
-            Free consultation • No obligations • Response within 24 hours
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-6 flex items-center justify-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-green-500"></span> Free consultation • No obligations
+            • Response within 24 hours
           </p>
         </div>
       </Container>

@@ -1,26 +1,35 @@
-"use client";
-import React from "react";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
-import { ChevronUp } from "lucide-react";
-import { FAQData } from "@/types";
+"use client"
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react"
+import { ChevronDown } from "lucide-react"
 
-export const Faq = ({faqdata}: { faqdata: FAQData }) => {
+interface FAQItem {
+  question: string
+  answer: string
+}
+
+type FAQData = FAQItem[]
+
+export const Faq = ({ faqdata }: { faqdata: FAQData }) => {
   return (
-    <div className="!p-0">
-      <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
+    <div className="w-full max-w-3xl mx-auto">
+      <div className="space-y-4">
         {faqdata.map((item, index) => (
-          <div key={item.question} className="mb-5">
+          <div
+            key={item.question}
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-subtle hover:shadow-card transition-shadow duration-300"
+          >
             <Disclosure>
               {({ open }) => (
                 <>
-                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-gray-800 rounded-lg bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-indigo-100 focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200">
-                    <span>{item.question}</span>
-                    <ChevronUp
-                      className={`${open ? "transform rotate-180" : ""
-                        } w-5 h-5 text-indigo-500`}
+                  <DisclosureButton className="flex items-center justify-between w-full px-6 py-5 text-left text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700/50 focus:outline-none focus-visible:ring focus-visible:ring-primary-500 focus-visible:ring-opacity-50 rounded-xl transition-colors duration-200">
+                    <span className="text-lg font-medium pr-4">{item.question}</span>
+                    <ChevronDown
+                      className={`${
+                        open ? "transform rotate-180" : ""
+                      } w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 transition-transform duration-200`}
                     />
                   </DisclosureButton>
-                  <DisclosurePanel className="px-4 pt-4 pb-2 text-gray-500 dark:text-gray-300">
+                  <DisclosurePanel className="px-6 pb-5 text-gray-600 dark:text-gray-300 leading-relaxed">
                     {item.answer}
                   </DisclosurePanel>
                 </>
@@ -30,6 +39,5 @@ export const Faq = ({faqdata}: { faqdata: FAQData }) => {
         ))}
       </div>
     </div>
-  );
+  )
 }
-

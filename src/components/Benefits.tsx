@@ -1,36 +1,39 @@
-import Image from "next/image";
-import React from "react";
-import { Container }  from "@/components/Container";
+import Image from "next/image"
+import React from "react"
+import { Container } from "./Container"
 
 interface BenefitsProps {
-  imgPos?: "left" | "right";
+  imgPos?: "left" | "right"
   data: {
-    imgPos?: "left" | "right";
-    title: string;
-    desc: string;
-    image: any;
+    imgPos?: "left" | "right"
+    title: string
+    desc: string
+    image: any
     bullets: {
-      title: string;
-      desc: string;
-      icon: React.ReactNode;
-    }[];
-  };
+      title: string
+      desc: string
+      icon: React.ReactNode
+    }[]
+  }
 }
+
 export const Benefits = (props: Readonly<BenefitsProps>) => {
-  const { data } = props;
+  const { data } = props
+
   return (
-      <div className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
+    <Container className="py-16">
+      <div className="flex flex-wrap items-center lg:gap-16 lg:flex-nowrap">
         <div
-          className={`flex items-center justify-center w-full lg:w-1/2 ${
-            props.imgPos === "right" ? "lg:order-1" : ""
-          }`}>
-          <div>
+          className={`flex items-center justify-center w-full lg:w-1/2 ${props.imgPos === "right" ? "lg:order-1" : ""}`}
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 rounded-2xl blur-3xl opacity-10"></div>
             <Image
-              src={data.image}
+              src={data.image || "/placeholder.svg"}
               width={521}
               height={521}
               alt="Benefits"
-              className={"object-cover"}
+              className="object-cover rounded-2xl relative z-10"
               placeholder="blur"
               blurDataURL={data.image.src}
             />
@@ -38,21 +41,24 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
         </div>
 
         <div
-          className={`flex flex-wrap items-center w-full lg:w-1/2 ${
+          className={`flex flex-wrap items-center w-full lg:w-1/2 mt-8 lg:mt-0 ${
             data.imgPos === "right" ? "lg:justify-end" : ""
-          }`}>
+          }`}
+        >
           <div>
-            <div className="flex flex-col w-full mt-4">
-              <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
+            <div className="flex flex-col w-full">
+              <div className="inline-block mb-4 px-3 py-1 bg-primary-50 dark:bg-primary-900/30 rounded-full w-fit">
+                <span className="text-primary-600 dark:text-primary-400 font-medium text-sm">Why Choose Us</span>
+              </div>
+
+              <h3 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight text-gray-900 lg:text-4xl dark:text-white mb-4">
                 {data.title}
               </h3>
 
-              <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300">
-                {data.desc}
-              </p>
+              <p className="max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-8">{data.desc}</p>
             </div>
 
-            <div className="w-full mt-5">
+            <div className="w-full space-y-6">
               {data.bullets.map((item, index) => (
                 <Benefit key={index} title={item.title} icon={item.icon}>
                   {item.desc}
@@ -62,25 +68,22 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
           </div>
         </div>
       </div>
-  );
-};
+    </Container>
+  )
+}
 
 function Benefit(props: any) {
   return (
-      <div className="flex items-start mt-8 space-x-3">
-        <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-indigo-500 rounded-md w-11 h-11 ">
-          {React.cloneElement(props.icon, {
-            className: "w-7 h-7 text-indigo-50",
-          })}
-        </div>
-        <div>
-          <h4 className="text-xl font-medium text-gray-800 dark:text-gray-200">
-            {props.title}
-          </h4>
-          <p className="mt-1 text-gray-500 dark:text-gray-400">
-            {props.children}
-          </p>
-        </div>
+    <div className="flex items-start space-x-4 group">
+      <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-primary-50 dark:bg-primary-900/30 rounded-lg w-12 h-12 group-hover:bg-primary-100 dark:group-hover:bg-primary-800/50 transition-colors duration-200">
+        {React.cloneElement(props.icon, {
+          className: "w-6 h-6 text-primary-600 dark:text-primary-400",
+        })}
       </div>
-  );
+      <div>
+        <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{props.title}</h4>
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{props.children}</p>
+      </div>
+    </div>
+  )
 }
