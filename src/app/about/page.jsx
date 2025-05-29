@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container"
 import { mailto, ourTeam } from "@/components/data"
+import PageHeader from "@/components/PageHeader"
 import { Heart, Target, Users, Award, MapPin, Calendar, Trophy, Lightbulb, Globe, CheckCircle, Coffee } from "lucide-react"
 
 const companyStats = [
@@ -97,28 +98,18 @@ const FeatureCards = ({ features }) => (
 )
 export default function AboutPage() {
   // Data for stats section
-
+ 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-      {/* Hero Section */}
-      <Container className="pt-20 pb-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-1.5 bg-primary-50 dark:bg-primary-900/30 rounded-full">
-            <span className="text-primary-600 dark:text-primary-400 font-medium text-sm">About Us</span>
-          </div>
-          <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 lg:text-5xl xl:text-6xl dark:text-white mb-6">
-            Your Trusted <span className="text-primary-600 dark:text-primary-400">Technology Partner</span> in India
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-            Samvit Edge is a forward-thinking IT consulting and software development company helping modern businesses
-            evolve digitally across India and globally.
-          </p>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-            {`Founded with the vision of bridging the gap between innovative technology and practical business solutions,
-            we've grown from a passionate team of developers into a comprehensive digital transformation partner.`}
-          </p>
-        </div>
-      </Container>
+    <PageHeader
+      title="Your Trusted Technology Partner in India"
+      highlightWord="Technology Partner"
+      tip="About Us"
+      subtitle="Samvit Edge is a forward-thinking IT consulting and software development company helping modern businesses evolve digitally across India and globally."
+      descs={[
+        "Founded with the vision of bridging the gap between innovative technology and practical business solutions, we've grown from a passionate team of developers into a comprehensive digital transformation partner."
+      ]}
+    />
 
       {/* Company Stats */}
       <Container className="pb-16">

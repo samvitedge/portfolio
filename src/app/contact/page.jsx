@@ -1,6 +1,8 @@
 import { Container } from "@/components/Container"
 import { mailto } from "@/components/data"
 import { Faq } from "@/components/Faq";
+import PageHeader from "@/components/PageHeader";
+import { SectionTitle } from "@/components/SectionTitle";
 import {
   MapPin,
   Phone,
@@ -220,37 +222,20 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
       {/* Hero Section */}
-      <Container className="pt-20 pb-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-1.5 bg-primary-50 dark:bg-primary-900/30 rounded-full">
-            <span className="text-primary-600 dark:text-primary-400 font-medium text-sm">
-              Get in touch with our team
-            </span>
-          </div>
-          <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 lg:text-5xl xl:text-6xl dark:text-white mb-6">
-            {`Let's Build Something`} <span className="text-primary-600 dark:text-primary-400">Amazing</span> Together
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-            Whether you have a groundbreaking project idea, need expert technology consultation, or want to explore
-            partnership opportunities — our team of experienced developers, designers, and strategists is ready to
-            collaborate and bring your vision to life.
-          </p>
-          <div className="flex flex-wrap gap-3 mb-12">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> Software Development
-            </span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> AI Automation
-            </span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> Cloud Solutions
-            </span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-              <CheckCircle className="w-4 h-4 mr-1.5 text-primary-500" /> Digital Transformation
-            </span>
-          </div>
-        </div>
-      </Container>
+        <PageHeader
+          title="Let's Build Something Amazing Together"
+          highlightWord="Amazing"
+          tip="Get in touch with our team"
+          descs={[
+            "Whether you have a groundbreaking project idea, need expert technology consultation, or want to explore partnership opportunities — our team of experienced developers, designers, and strategists is ready to collaborate and bring your vision to life."
+          ]}
+          tags={[
+            "Software Development",
+            "AI Automation",
+            "Cloud Solutions",
+            "Digital Transformation"
+          ]}
+        />
 
       {/* Contact Section */}
       <Container className="pb-20">
@@ -386,14 +371,10 @@ export default function ContactPage() {
       </Container>
 
       {/* FAQ Section */}
-      <Container className="py-16 bg-gray-50 dark:bg-gray-900/50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Frequently Asked Questions
-          </h2>
-          <Faq faqdata={faqs} />
-        </div>
-      </Container>
+      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
+
+      </SectionTitle>           
+      <Faq faqdata={faqs} />
 
       {/* CTA Section */}
       <Container className="py-20">

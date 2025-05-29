@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { CheckCircle, ArrowRight } from "lucide-react"
 import { Container } from "./Container"
+import { ContainerTextFlip } from "./ui/TextFlips"
 
 export const Hero = () => {
   return (
@@ -14,9 +15,11 @@ export const Hero = () => {
               </span>
             </div>
 
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 lg:text-5xl xl:text-6xl dark:text-white mb-6">
-              Empowering Digital <span className="text-primary-600 dark:text-primary-400">Evolution</span> for Modern
-              Businesses
+            <h1 className="text-4xl/10 font-bold leading-tight tracking-tight text-gray-900 lg:text-5xl/[60px] xl:text-6xl/[80px] dark:text-white mb-6 ">
+              {/* Empowering Digital <span className="text-primary-600 dark:text-primary-400">Evolution</span> for Modern
+              Businesses */}
+
+              Building the Future of Digital <ContainerTextFlip words={["Strategy", "Engagement", "Architecture", "Solutions", "Innovation"]} />
             </h1>
 
             <p className="text-xl leading-relaxed text-gray-600 dark:text-gray-300 mb-8">

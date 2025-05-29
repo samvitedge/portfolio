@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "lucide-react";
 import Logo from "./Logo"
+import ThemeChanger from "./DarkSwitch";
 
 export const Navbar = () => {
   const navigation = [
@@ -32,7 +33,7 @@ export const Navbar = () => {
                   {item.text}
                 </Link>
               ))}
-              {/* <ThemeChanger /> */}
+              <ThemeChanger />
             </div>
 
             {/* Mobile menu button */}

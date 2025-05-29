@@ -2,95 +2,48 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
+import LogoLink from "./Logo";
 
 export function Footer() {
   const navigation = [
     { name: "Solutions", href: "/solutions" },
     { name: "Services", href: "/services" },
     { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Blog", href: "/blog" },
-  ];
-  const legal = [
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Legal", href: "/legal" },
   ];
 
   return (
     <div className="relative">
       <Container>
-        <div className="max-w-screen-xl g gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 flex justify-between">
-          <div className="lg:col-span-2 flex items-center gap-5">
-            <div>
-              <Link
-                href="/"
-                className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
-              >
-                <Image
-                  src="/img/logo.png" // replace with your logo path
-                  alt="Samvit Edge Logo"
-                  width={150}
-                  height={150}
-                  className="w-[150px]"
-                />
-              </Link>
-            </div>
-
-            <div className="max-w-md text-gray-500 dark:text-gray-400">
+        <div className="max-w-screen-xl mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 pt-10 flex flex-col md:flex-row justify-between gap-10">
+          {/* Logo and Description */}
+          <div className="flex flex-col items-start gap-4 max-w-md">
+            <Link href="/" className="flex items-center space-x-2">
+              <LogoLink/>
+            </Link>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Samvit Edge is your trusted IT partner delivering smart, scalable, and innovative technology solutions designed to elevate your business to the next level.
-            </div>
+            </p>
           </div>
 
-          {/* <div>
-            <div className="flex flex-col space-y-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+          {/* Navigation */}
+          <div className="flex flex-col space-y-2">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
+          {/* Socials */}
           <div>
-            <div className="flex flex-col space-y-2">
-              {legal.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div> */}
-
-          {/* <div>
             <div className="mb-2 font-semibold text-gray-700 dark:text-gray-300">
               Follow us
             </div>
             <div className="flex mt-2 space-x-5 text-gray-400 dark:text-gray-500">
-              <a
-                href="https://twitter.com/samvitedge"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
-                <Twitter />
-              </a>
-              <a
-                href="https://facebook.com/samvitedge"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
-                <Facebook />
-              </a>
               <a
                 href="https://instagram.com/samvitedge"
                 target="_blank"
@@ -108,7 +61,7 @@ export function Footer() {
                 <Linkedin />
               </a>
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">

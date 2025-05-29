@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import { mailto } from "@/components/data";
 import { Faq } from "@/components/Faq";
+import PageHeader from "@/components/PageHeader";
 import { SectionTitle } from "@/components/SectionTitle";
 import { CheckCircle, Code, Smartphone, Brain, Cloud, Palette, ArrowRight } from "lucide-react";
 
@@ -246,25 +247,17 @@ const ServiceCard = ({ service }) => {
 };
 
 export default function ServicesPage() {
-  return (
+  return ( 
     <>
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-        {/* Hero Section */}
-        <Container className="pt-20 pb-16">
-          <div className="w-full max-w-screen-xl mx-auto text-center">
-            <div className="inline-block mb-6 px-4 py-1.5 bg-primary-50 dark:bg-primary-900/30 rounded-full">
-              <span className="text-primary-600 dark:text-primary-400 font-medium text-sm">Our Services</span>
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl mb-6">
-              Software Development Services <span className="text-primary-600 dark:text-primary-400">Tailored</span> for
-              Your Business Growth
-            </h1>
-            <p className="mt-6 text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Elevate your business with our expert software solutions designed to deliver scalability, security, and
-              superior user experience across industries.
-            </p>
-          </div>
-        </Container>
+        <PageHeader
+          title="Software Development Services Tailored for Your Business Growth"
+          highlightWord="Tailored"
+          tip="Our Services"
+          descs={[
+            "Elevate your business with our expert software solutions designed to deliver scalability, security, and superior user experience across industries."
+          ]}
+        />
 
         {/* Services Section */}
         <div className="pb-20">

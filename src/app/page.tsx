@@ -6,6 +6,7 @@ import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 
 import { benefitOne, benefitTwo } from "@/components/data";
+import { AuroraBackground } from "@/components/ui/Aurorabg";
 
 
 const faqdata = [
@@ -43,8 +44,13 @@ const faqdata = [
 
 export default function Home() {
   return (
-    <Container>
+    <>
+          <AuroraBackground>
       <Hero />
+      </AuroraBackground>
+    <Container className="mt-20">
+
+
       <SectionTitle
         preTitle="Samvit Edge"
         title="Why Partner with Samvit Edge?"
@@ -84,5 +90,7 @@ export default function Home() {
       <Faq faqdata={faqdata} />
       <Cta />
     </Container>
+    </>
+
   );
 }
