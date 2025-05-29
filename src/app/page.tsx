@@ -7,7 +7,8 @@ import { Cta } from "@/components/Cta";
 
 import { benefitOne, benefitTwo } from "@/components/data";
 import { AuroraBackground } from "@/components/ui/Aurorabg";
-
+import { HeroGeometric } from "@/components/ui/ShapeHero";
+import HeroTwo from "@/components/HeroT"
 
 const faqdata = [
   {
@@ -45,9 +46,10 @@ const faqdata = [
 export default function Home() {
   return (
     <>
-          <AuroraBackground>
+    {/* <HeroTwo/> */}
+    <AuroraBackground>
       <Hero />
-      </AuroraBackground>
+    </AuroraBackground>
     <Container className="mt-20">
 
 

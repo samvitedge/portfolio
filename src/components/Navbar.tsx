@@ -38,7 +38,7 @@ export const Navbar = () => {
 
             {/* Mobile menu button */}
             <div className="lg:hidden flex items-center">
-              {/* <ThemeChanger /> */}
+              <ThemeChanger />
               <Disclosure.Button className="ml-2 inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
                 {open ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
               </Disclosure.Button>
