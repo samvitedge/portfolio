@@ -228,7 +228,7 @@ export default function ContactPage() {
             </span>
           </div>
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 lg:text-5xl xl:text-6xl dark:text-white mb-6">
-            Let's Build Something <span className="text-primary-600 dark:text-primary-400">Amazing</span> Together
+            {`Let's Build Something`} <span className="text-primary-600 dark:text-primary-400">Amazing</span> Together
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
             Whether you have a groundbreaking project idea, need expert technology consultation, or want to explore
@@ -261,8 +261,8 @@ export default function ContactPage() {
               Start Your Project Today
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              Tell us about your project and we'll get back to you with a detailed proposal and timeline. All
-              consultations are completely free with no obligations.
+              {`Tell us about your project and we'll get back to you with a detailed proposal and timeline. All
+              consultations are completely free with no obligations.`}
             </p>
 
             <form action="/api/contact" method="POST" className="space-y-6">

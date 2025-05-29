@@ -49,7 +49,7 @@ export default function Home() {
         preTitle="Samvit Edge"
         title="Why Partner with Samvit Edge?"
       >
-        {"At Samvit Edge, we don’t just deliver IT solutions we solve real problems with smart design, clean architecture, and rapid execution. Our team blends technical depth with product sense to help businesses move fast and build right."}
+        {"At Samvit Edge, we don't just deliver IT solutions we solve real problems with smart design, clean architecture, and rapid execution. Our team blends technical depth with product sense to help businesses move fast and build right."}
       </SectionTitle>
 
       <Benefits data={benefitOne} />
