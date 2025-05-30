@@ -39,8 +39,8 @@ export const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-xl lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-300 mb-12 max-w-4xl mx-auto">
-            At Samvit Edge, we don't just build software — we engineer smart, scalable, and future-ready tech solutions
-            that drive real impact for your business.
+            {`At Samvit Edge, we don't just build software — we engineer smart, scalable, and future-ready tech solutions
+            that drive real impact for your business.`}
           </p>
 
           {/* Feature Cards */}
@@ -81,7 +81,7 @@ export const Hero = () => {
           <div className="relative mb-12">
             <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 lg:p-12 rounded-3xl border border-primary-200/30 dark:border-primary-800/30 shadow-2xl">
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Whether you're a startup or scaling enterprise, we're here to:
+                {`Whether you're a startup or scaling enterprise, we're here to:`}
               </h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
@@ -106,7 +106,7 @@ export const Hero = () => {
           {/* Call to Action Quote */}
           <div className="bg-gradient-to-r from-primary-600 to-primary-700 p-8 lg:p-12 rounded-3xl mb-12 shadow-2xl">
             <p className="text-2xl lg:text-3xl font-bold text-white leading-relaxed">
-              Let's bring your ideas to life with <span className="text-primary-200">clarity</span>,{" "}
+              {`Let's bring your ideas to life with`} <span className="text-primary-200">clarity</span>,{" "}
               <span className="text-primary-200">speed</span>, and <span className="text-primary-200">precision</span>.
             </p>
           </div>
