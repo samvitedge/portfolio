@@ -12,17 +12,13 @@ export default function LogoLink() {
   useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
-
-  const logoSrc =
-    resolvedTheme === "dark" ? "/img/darklogo.png" : "/img/logoo.png";
-
   return (
     <Link
       href="/"
       className="flex items-center gap-2 hover:opacity-90 transition-opacity"
     >
       <Image
-        src={logoSrc}
+        src={resolvedTheme === "dark" ? "/img/darklogo.png" : "/img/logoo.png"}
         width={40}
         height={40}
         alt="SamvitEdge Logo"
