@@ -7,8 +7,6 @@ import { Cta } from "@/components/Cta";
 
 import { benefitOne, benefitTwo } from "@/components/data";
 import { AuroraBackground } from "@/components/ui/Aurorabg";
-import { HeroGeometric } from "@/components/ui/ShapeHero";
-import HeroTwo from "@/components/HeroT"
 
 const faqdata = [
   {
@@ -46,13 +44,10 @@ const faqdata = [
 export default function Home() {
   return (
     <>
-    {/* <HeroTwo/> */}
     <AuroraBackground>
       <Hero />
     </AuroraBackground>
     <Container className="mt-20">
-
-
       <SectionTitle
         preTitle="Samvit Edge"
         title="Why Partner with Samvit Edge?"

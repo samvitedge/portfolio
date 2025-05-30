@@ -105,7 +105,11 @@ const config: Config = {
         aurora: 'aurora 60s linear infinite',
       },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }: { addVariant: any}) {
+      addVariant('no-hover', '@media (hover: none)');
+    },
+  ],
 }
 
 export default config

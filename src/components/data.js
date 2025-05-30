@@ -7,8 +7,8 @@ import {
   SunIcon,
 } from "@heroicons/react/24/solid";
 
-import benefitOneImg from "../../public/img/benefit-one.png";
-import benefitTwoImg from "../../public/img/benefit-two.png";
+import benefitOneImg from "../../public/img/Clip path group.svg";
+import benefitTwoImg from "../../public/img/Clip path group (1).svg";
 
 const benefitOne = {
   title: "Why Choose Samvit Edge?",

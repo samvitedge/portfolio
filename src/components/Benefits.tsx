@@ -75,7 +75,7 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
 function Benefit(props: any) {
   return (
     <div className="flex items-start space-x-4 group">
-      <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-primary-50 dark:bg-primary-900/30 rounded-lg w-12 h-12 group-hover:bg-primary-100 dark:group-hover:bg-primary-800/50 transition-colors duration-200">
+      <div className="flex items-center justify-center flex-shrink-0 mt-1  rounded-lg w-12 h-12 transition-colors duration-200">
         {React.cloneElement(props.icon, {
           className: "w-6 h-6 text-primary-600 dark:text-primary-400",
         })}
