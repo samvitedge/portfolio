@@ -1,5 +1,5 @@
 import { generateFAQSchema } from "@/lib/getFaqSchema";
-import { faqs } from "./page.jsx";
+import { faqs } from "./data";
 
 export const metadata = {
   title: "contact | Samvit Edge",
