@@ -60,7 +60,7 @@ const servicesSchema = {
   "url": "https://www.samvitedge.com",
   "logo": "https://www.samvitedge.com/logo.png", 
   "sameAs": [
-    "https://www.linkedin.com/company/samvitedge",
+    "https://www.linkedin.com/company/samvitedge-solutions",
     "https://www.instagram.com/samvitedge"
   ],
   "description": "Samvit Edge offers smart, scalable digital solutions including backend architecture, frontend development, AI-powered automation, and custom software tailored for startups and enterprises.",
