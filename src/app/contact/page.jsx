@@ -163,7 +163,7 @@ const formFields = [
 ];
 
 // FAQ data
-const faqs = [
+export const faqs = [
   {
     question: "How quickly can you start my project?",
     answer: "We typically begin new projects within 1-2 weeks of contract signing. For urgent projects, we can often accommodate faster start times depending on our current workload and project complexity.",

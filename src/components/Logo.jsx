@@ -18,7 +18,7 @@ export default function LogoLink() {
       className="flex items-center gap-2 hover:opacity-90 transition-opacity"
     >
       <Image
-        src={resolvedTheme === "dark" ? "/img/darklogo.png" : "/img/logoo.png"}
+        src={resolvedTheme === "dark" ? "/img/darkLogo.png" : "/img/logoo.png"}
         width={40}
         height={40}
         alt="SamvitEdge Logo"
