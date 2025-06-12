@@ -223,13 +223,13 @@ export default function AboutPage() {
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-white font-bold text-xl">
-                    {member.name
+                    {member.name && member.name
                       .split(" ")
                       .map((n) => n[0])
                       .join("")}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{member.name}</h3>
+                {/* <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{member.name}</h3> */}
                 <p className="text-primary-600 dark:text-primary-400 font-medium mb-2">{member.role}</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{member.expertise}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-500">{member.experience}</p>

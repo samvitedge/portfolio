@@ -63,43 +63,42 @@ const mailto = "mailto:contact@samvitedge.com?subject=Free Consultation Request&
 
 const ourTeam = [
   {
-    name: "Kritika Vyas",
+    name: "Krishika Vyas",
     role: "Growth Marketing Expert",
     expertise: "Digital marketing strategies, growth hacking, customer acquisition, and brand development",
     experience: "4+ Years",
   },
   {
-    name: "Manish S.",
+    name: "Monish",
     role: "Data Analyst & AI Expert",
     expertise: "Data analysis, social media insights, and artificial intelligence",
     experience: "7+ Years",
   },
   {
-    name: "Adarsh D.",
+    name: "Aditya",
     role: "SQL & Database Administrator",
     expertise: "Relational databases, SQL optimization, and database administration",
     experience: "4+ Years",
   },
   {
-    name: "Gauransh R.",
+    name: "Gaurav",
     role: "Python & Backend Expert",
     expertise: "Python development, backend architecture, and APIs",
     experience: "2+ Years",
   },
   {
-    name: "Viren C.",
+    name: "Vivek",
     role: "Software Engineer",
     expertise: "Full-stack development, real-time systems, backend architecture, and algorithmic trading platforms",
     experience: "3+ Years",
   },
   {
-    name: "Bhavesh T.",
+    name: "Brijesh",
     role: "Python Backend Developer",
     expertise: "Backend systems, Python frameworks, and automation",
     experience: "3+ Years",
   },
 ];
-
 
 
 export {benefitOne, benefitTwo, mailto, ourTeam};
