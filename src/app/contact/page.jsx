@@ -53,8 +53,8 @@ const businessHours = [
 
 // Social links data
 const socialLinks = [
-  { icon: Linkedin, label: "LinkedIn", handle: "@samvitedge", href: "#" },
-  { icon: Instagram, label: "Instagram", handle: "@samvitedge", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", handle: "@samvitedge", href: "https://www.linkedin.com/company/samvitedge-solutions/" },
+  { icon: Instagram, label: "Instagram", handle: "@samvitedge", href: "https://www.instagram.com/samvit.edge/" },
 ];
 
 // Form field configuration
