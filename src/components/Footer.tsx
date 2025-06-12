@@ -45,7 +45,7 @@ export function Footer() {
             </div>
             <div className="flex mt-2 space-x-5 text-gray-400 dark:text-gray-500">
               <a
-                href="https://instagram.com/samvitedge"
+                href="https://www.instagram.com/samvit.edge/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -53,7 +53,7 @@ export function Footer() {
                 <Instagram />
               </a>
               <a
-                href="https://linkedin.com/company/samvitedge"
+                href="https://www.linkedin.com/company/samvitedge-solutions/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
