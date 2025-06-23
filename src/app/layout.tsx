@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { GoogleTagManager } from "@next/third-parties/google"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -102,6 +103,7 @@ export default function RootLayout({
           <Footer />
           {/* <PopupWidget /> */}
         </ThemeProvider>
+        <GoogleTagManager gtmId="GTM-M27L7S68" />
       </body>
     </html>
   );
